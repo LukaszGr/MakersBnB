@@ -11,11 +11,9 @@ Headline Specifications
   Nights for which a space has already been booked should not be available for users to book that space.
   Until a user has confirmed a booking request, that space can still be booked for that night.
 
-```
-As a signed-up user
-So I can make some money
-I want to list a space with a name, description and a price per night
-```
+---PENDING---
+
+
 
 ```
 As a user
@@ -63,4 +61,12 @@ I want to see all booking requests
 As a signed-up user
 So I can only view available spaces
 I want to only see listings that have not already been confirmed as booked
+```
+
+---DONE---
+
+```
+As a signed-up user
+So I can make some money
+I want to list a space with a name, description and a price per night
 ```
