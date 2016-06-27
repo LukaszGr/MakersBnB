@@ -16,8 +16,14 @@ class App < Sinatra::Base
   set :partial_template_engine, :erb
   enable :partial_underscores
 
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
+  end
+
   get '/' do
-    'Hello App!'
+    erb :index
   end
 
   get '/user/new' do
@@ -29,7 +35,7 @@ class App < Sinatra::Base
 
     if @user.save
       session[:user_id] = @user.id
-      redirect('/welcome')
+      redirect('/')
     else
       flash.now[:errors] = @user.errors.full_messages
       erb :signup
@@ -44,25 +50,17 @@ class App < Sinatra::Base
     @user = User.authenticate(params[:email],params[:password])
     if @user
       session[:user_id] = @user.id
-      redirect('/welcome')
+      redirect('/')
     else
       flash.now[:errors] = ['This email/password combination does not exist']
       erb :login
     end
   end
 
-  get '/welcome' do
-    current_user
-    erb :welcome
+  post '/session/end' do
+    session[:user_id] = nil
+    redirect '/'
   end
 
-  helpers do
-    def current_user
-      @current_user ||= User.get(session[:user_id])
-    end
-  end
-
-
-  # start the server if ruby file executed directly
   run! if app_file == $0
 end
