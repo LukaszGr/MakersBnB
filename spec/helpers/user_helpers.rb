@@ -1,4 +1,5 @@
 module UsersHelper
+
   def create_user(name: "Toby", email: "toby@makersacademy.com",password_confirmation: "supersecret", password: "supersecret")
     User.create(email: email,
       password: password,

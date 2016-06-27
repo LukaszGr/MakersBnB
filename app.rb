@@ -36,6 +36,21 @@ class App < Sinatra::Base
     end
   end
 
+  get '/session/new' do
+    erb :login
+  end
+
+  post '/session/new' do
+    @user = User.authenticate(params[:email],params[:password])
+    if @user
+      session[:user_id] = @user.id
+      redirect('/welcome')
+    else
+      flash.now[:errors] = ['This email/password combination does not exist']
+      erb :login
+    end
+  end
+
   get '/welcome' do
     current_user
     erb :welcome
