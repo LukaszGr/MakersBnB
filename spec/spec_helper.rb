@@ -8,6 +8,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
+require './models/user'
 
 Capybara.app = App
 
