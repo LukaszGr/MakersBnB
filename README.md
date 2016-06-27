@@ -10,3 +10,57 @@ Headline Specifications
   Any signed-up user can request to hire any space for one night, and this should be approved by the user that owns that space.
   Nights for which a space has already been booked should not be available for users to book that space.
   Until a user has confirmed a booking request, that space can still be booked for that night.
+
+```
+As a signed-up user
+So I can make some money
+I want to list a space with a name, description and a price per night
+```
+
+```
+As a user
+So I can list a space
+I want to be able to sign up
+```
+
+```
+As a user
+So I can see all spaces
+I want to see all listings
+```
+
+```
+As a signed-up user
+So I can make more money
+I want to list multiple spaces
+```
+
+```
+As a signed-up user
+So I can offer my listing at the appropriate dates
+I can select a range of dates it is available
+```
+
+```
+As a signed-up user
+So I can hire a space
+I want to hire a space for one night
+```
+
+```
+As the owner of a listing
+So I can hire out my listing
+I want to approve the request from a signed-in user
+```
+
+```
+As a owner of a listing
+So I can choose who rents my listing
+I want to see all booking requests
+```
+
+```
+As a signed-up user
+So I can only view available spaces
+I want to only see listings that have not already been confirmed as booked
+```
