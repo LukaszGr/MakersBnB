@@ -3,6 +3,7 @@ require 'sinatra/base'
 require_relative 'data_mapper_setup'
 require './models/user'
 require 'sinatra/flash'
+require 'sinatra/partial'
 
 class App < Sinatra::Base
 
@@ -10,6 +11,10 @@ class App < Sinatra::Base
   set :session_secret, 'super secret'
 
   register Sinatra::Flash
+  register Sinatra::Partial
+
+  set :partial_template_engine, :erb
+  enable :partial_underscores
 
   get '/' do
     'Hello App!'
@@ -20,9 +25,8 @@ class App < Sinatra::Base
   end
 
   post '/user/new' do
-    p '+++++++'
     @user = User.create(name: params[:name], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
-    p @user
+
     if @user.save
       session[:user_id] = @user.id
       redirect('/welcome')
