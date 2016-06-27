@@ -31,7 +31,6 @@ class App < Sinatra::Base
       session[:user_id] = @user.id
       redirect('/welcome')
     else
-      p @user.errors.full_messages
       flash.now[:errors] = @user.errors.full_messages
       erb :signup
     end
