@@ -7,13 +7,9 @@ feature 'Adding space lisiting' do
 		fill_in 'description', with: 'a really dirty house'
 		fill_in 'price_per_night', with: '20.00'
 
-		expect{ click_button(:'Add Space') }.to change{ Space.all.count }.by(1) 
+		expect{ click_button(:'Add Space') }.to change{ Space.all.count }.by(1)
 		expect(page.status_code).to eq(200)
-		expect(current_path).to eq '/space'
-		within 'ul.spaces' do
-			expect(page).to have_content 'YoMama House'
-		end
-
-
+		expect(current_path).to eq '/'
+		expect(page).to have_css("#current_space_list", :text => "YoMama")
 	end
 end
