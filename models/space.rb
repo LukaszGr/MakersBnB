@@ -8,8 +8,8 @@ class Space
   property :name, String, :required => true
   property :description, String, :required => true
   property :price_per_night, Decimal, :required => true, precision: 6, scale: 2
-  property :date_from, Date
-  property :date_to, Date
+  property :date_from, Date, :required => true
+  property :date_to, Date, :required => true
 
 	belongs_to :user
 end
