@@ -16,13 +16,6 @@ Headline Specifications
 ---PENDING---
 
 
-
-```
-As a signed-up user
-So I can offer my listing at the appropriate dates
-I can select a range of dates it is available
-```
-
 ```
 As a signed-up user
 So I can hire a space
@@ -71,5 +64,11 @@ I want to list multiple spaces
 As a user
 So I can see all spaces
 I want to see all listings
+```
+
+```
+As a signed-up user
+So I can offer my listing at the appropriate dates
+I can select a range of dates it is available
 ```
 
