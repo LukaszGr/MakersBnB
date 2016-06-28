@@ -16,13 +16,6 @@ Headline Specifications
 ---PENDING---
 
 
-
-```
-As a user
-So I can list a space
-I want to be able to sign up
-```
-
 ```
 As a user
 So I can see all spaces
@@ -66,6 +59,12 @@ I want to only see listings that have not already been confirmed as booked
 ```
 
 ---DONE---
+
+```
+As a user
+So I can list a space
+I want to be able to sign up
+```
 
 ```
 As a signed-up user
