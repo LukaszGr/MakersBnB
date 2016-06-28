@@ -8,11 +8,14 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
+require './models/user'
+require_relative './helpers/user_helpers'
 
 Capybara.app = App
 
 RSpec.configure do |config|
   config.include Capybara::DSL
+  config.include UsersHelper
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
