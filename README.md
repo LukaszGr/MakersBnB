@@ -16,17 +16,6 @@ Headline Specifications
 ---PENDING---
 
 
-```
-As a user
-So I can see all spaces
-I want to see all listings
-```
-
-```
-As a signed-up user
-So I can make more money
-I want to list multiple spaces
-```
 
 ```
 As a signed-up user
@@ -71,3 +60,16 @@ As a signed-up user
 So I can make some money
 I want to list a space with a name, description and a price per night
 ```
+
+```
+As a signed-up user
+So I can make more money
+I want to list multiple spaces
+```
+
+```
+As a user
+So I can see all spaces
+I want to see all listings
+```
+
