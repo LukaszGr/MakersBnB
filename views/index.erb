@@ -2,7 +2,7 @@
 
 <% @all_spaces.each do |space| %>
 <ul id="current_space_list">
-  <li> <%= space.name %> </li>
+  <li> <strong> <%= space.name %> </strong>  --- <%= space.description %> --- <%= space.price_per_night.to_i %> </li>
 </ul>
 <br>
 <%end%>

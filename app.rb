@@ -24,7 +24,7 @@ class App < Sinatra::Base
   end
 
   get '/' do
-    p @all_spaces = Space.all
+    @all_spaces = Space.all
     erb :index
   end
 
