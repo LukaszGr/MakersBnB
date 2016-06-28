@@ -17,12 +17,6 @@ Headline Specifications
 
 ```
 As a signed-up user
-So I can make more money
-I want to list multiple spaces
-```
-
-```
-As a signed-up user
 So I can offer my listing at the appropriate dates
 I can select a range of dates it is available
 ```
@@ -63,6 +57,12 @@ I want to be able to sign up
 As a signed-up user
 So I can make some money
 I want to list a space with a name, description and a price per night
+```
+
+```
+As a signed-up user
+So I can make more money
+I want to list multiple spaces
 ```
 
 ```
