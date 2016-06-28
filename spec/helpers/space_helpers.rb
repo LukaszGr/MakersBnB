@@ -1,9 +1,10 @@
 module SpaceHelper
 
   def create_space
-    Space.create(name: "YoMama House",
-      description: "a really dirty house",
-      price_per_night: 20.00,
-      user_id: 1)
+    visit '/space/new'
+		fill_in 'name', with: 'YoMama House'
+		fill_in 'description', with: 'a really dirty house'
+		fill_in 'price_per_night', with: '20.00'
+    click_button('Add Space')
   end
 end
