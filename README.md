@@ -15,8 +15,6 @@ Headline Specifications
 
 ---PENDING---
 
-
-
 ```
 As a signed-up user
 So I can offer my listing at the appropriate dates
@@ -72,4 +70,3 @@ As a user
 So I can see all spaces
 I want to see all listings
 ```
-

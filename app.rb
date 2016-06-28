@@ -24,20 +24,17 @@ class App < Sinatra::Base
   end
 
   get '/' do
+    @all_spaces = Space.all
     erb :index
   end
 
   get '/space/new' do
     erb :'spaces/new'
-  end 
-
-  get '/space' do
-    erb :'spaces/space'
   end
-  
-  post '/space' do 
+
+  post '/space' do
     @space = Space.create(name: params[:name], description: params[:description], price_per_night: params[:price_per_night], user_id: current_user.id)
-    redirect '/space'
+    redirect '/'
   end
 
   get '/user/new' do
