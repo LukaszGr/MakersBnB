@@ -2,7 +2,12 @@
 
 <% @all_spaces.each do |space| %>
 <ul id="current_space_list">
-  <li> <strong> <%= space.name %> </strong>  --- <%= space.description %> --- <%= space.price_per_night.to_i %> </li>
+  <li> <strong>  <%= space.name %> </strong>  --- <%= space.description %> --- <%= space.price_per_night.to_i %>
+    <form class="" action="/booking/new/" method="post">
+      <input type="hidden" name="space_id" value="<%=space.id%>">
+      <input type="submit" id="booking" value="Make Booking">
+    </form>
+   </li>
 </ul>
 <br>
 <%end%>

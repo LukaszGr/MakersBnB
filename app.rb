@@ -73,5 +73,11 @@ class App < Sinatra::Base
     redirect '/'
   end
 
+  post '/booking/new/' do
+    p params
+    @space = Space.get(params[:space_id])
+    erb :newbooking
+  end
+
   run! if app_file == $0
 end
