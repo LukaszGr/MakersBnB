@@ -1,3 +1,5 @@
-<% flash[:errors] && flash[:errors].each do |notice| %>
-  <%= notice %>
-<% end %>
+<ul>
+  <% flash[:errors] && flash[:errors].each do |notice| %>
+    <li> <%= notice %></li>
+  <% end %>
+</ul>
