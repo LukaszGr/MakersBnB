@@ -1,0 +1,7 @@
+<h1>Book <%= @space.name %> </h1>
+<h2><%= @space.description %></h2>
+<h3>Price per night: <%= @space.price_per_night.to_i %></h3>
+  <form class="" action="/booking/create" method="post">
+    <input type="hidden" name="space_id" value="<%=@space.id%>">
+    <input type="submit" id="booking" value="Make Booking">
+  </form>

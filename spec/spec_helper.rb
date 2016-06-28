@@ -10,8 +10,10 @@ require 'rspec'
 require 'database_cleaner'
 require './models/user'
 require './models/space'
+require './models/booking'
 require_relative './helpers/user_helpers'
 require_relative './helpers/space_helpers'
+require_relative './helpers/booking_helpers'
 
 Capybara.app = App
 
@@ -19,6 +21,7 @@ RSpec.configure do |config|
   config.include Capybara::DSL
   config.include UsersHelper
   config.include SpaceHelper
+  config.include BookingHelper
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction

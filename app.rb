@@ -3,6 +3,7 @@ require 'sinatra/base'
 require_relative 'data_mapper_setup'
 require './models/user'
 require './models/space'
+require './models/booking'
 require 'sinatra/flash'
 require 'sinatra/partial'
 
@@ -33,6 +34,7 @@ class App < Sinatra::Base
   end
 
   post '/space' do
+    current_user
     @space = Space.create(name: params[:name], description: params[:description], price_per_night: params[:price_per_night], user_id: current_user.id)
     redirect '/'
   end
@@ -71,6 +73,27 @@ class App < Sinatra::Base
   post '/session/end' do
     session[:user_id] = nil
     redirect '/'
+  end
+
+  post '/booking/new/' do
+    @space = Space.get(params[:space_id])
+    erb :newbooking
+  end
+
+  post '/booking/create' do
+    @booking = Booking.create(booker_id: current_user.id,
+                              space_id: params[:space_id],
+                              date: "22/04/16",
+                              confirmed: false)
+    if @booking.save
+      redirect '/booking/confirmation'
+    else
+      p "unsuccessful"
+    end
+  end
+
+  get '/booking/confirmation' do
+    erb :bookingconfirmation
   end
 
   run! if app_file == $0
