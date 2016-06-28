@@ -1,12 +1,11 @@
 feature 'book a space' do
 
   before(:each) do
-    sign_in
+    create_user
     create_space
   end
 
   scenario 'book a space for one night' do
-
     visit '/'
     click_button('Make Booking')
     expect(page).to have_content('Book YoMama')

@@ -1,7 +1,7 @@
 feature 'Adding space lisiting' do
 
 	scenario 'I can add space listing' do
-		sign_in
+		create_user
 		visit '/space/new'
 		fill_in 'name', with: 'YoMama House'
 		fill_in 'description', with: 'a really dirty house'

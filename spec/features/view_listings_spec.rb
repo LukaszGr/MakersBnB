@@ -9,6 +9,6 @@ feature 'view listings' do
 
   scenario 'view all listings' do
     visit '/'
-		expect(page).to have_css("#current_space_list", :text => "YoMama")
+		expect(page).to have_content("YoMama")
   end
 end
