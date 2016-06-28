@@ -2,6 +2,7 @@ ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
 require_relative 'data_mapper_setup'
 require './models/user'
+require './models/space'
 require 'sinatra/flash'
 require 'sinatra/partial'
 
@@ -24,6 +25,19 @@ class App < Sinatra::Base
 
   get '/' do
     erb :index
+  end
+
+  get '/space/new' do
+    erb :'spaces/new'
+  end 
+
+  get '/space' do
+    erb :'spaces/space'
+  end
+  
+  post '/space' do 
+    @space = Space.create(name: params[:name], description: params[:description], price_per_night: params[:price_per_night], user_id: current_user.id)
+    redirect '/space'
   end
 
   get '/user/new' do

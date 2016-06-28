@@ -8,11 +8,11 @@ module UsersHelper
   end
 
   def sign_in
-    user = create_user(password: "password")
+    user = create_user
     visit "/"
     click_link "Sign In"
     fill_in :email, with: user.email
-    fill_in :password, with: "password"
-    click_button "Sign In"
+    fill_in :password, with: "supersecret"
+    click_button "submit"
   end
 end
