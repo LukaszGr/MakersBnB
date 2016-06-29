@@ -18,10 +18,10 @@ class Space
 
 
   def self.retrieve_bookings(user_id)
-    bookings = []
+    bookings = Hash.new
     if user_has_space?(user_id)
       retrieve_all_users_spaces(user_id).each do |space|
-        bookings << Booking.retrieve_bookings_for_space(space.id)
+        bookings[space.name] = Booking.retrieve_bookings_for_space(space.id)
       end
     else
       return false
@@ -41,6 +41,6 @@ class Space
   end
 
   def self.do_any_bookings_exist_for_spaces?(bookings)
-    !(bookings.all? {|booking| booking == nil})
+    !(bookings.all? {|name,bookings| bookings == nil})
   end
 end

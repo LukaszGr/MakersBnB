@@ -1,1 +1,17 @@
-<h1>Woooo!</h1>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <h1>Booking requests</h1>
+  <%if booking_info%>
+  <% booking_info.each do |name, bookings| %>
+  <ul>
+    <li><%= name %>---
+      <li><%=bookings.name%></li>
+    </li>
+  </ul>
+  <%end%>
+  <%end%>
+</body>
+</html>
