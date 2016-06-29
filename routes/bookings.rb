@@ -8,7 +8,7 @@ end
 post '/booking/create' do
   @booking = Booking.create(booker_id: current_user.id,
                             space_id: params[:space_id],
-                            date: "22/04/16",
+                            date: params[:date_rental],
                             confirmed: false)
   if @booking.save
     redirect '/booking/confirmation'
