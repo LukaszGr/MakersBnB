@@ -17,4 +17,13 @@ feature 'book a space' do
 		expect(page.status_code).to eq(200)
   end
 
+  scenario 'can\'t book a space on a date that\'s already been booked' do
+    create_confirmed_booking
+    visit '/'
+    click_button('Make Booking')
+    fill_in('date_rental', :with => '2016/09/02')
+    expect{ click_button(:'Make Booking') }.to change{ Space.all.count }.by(0)
+
+
+  end
 end

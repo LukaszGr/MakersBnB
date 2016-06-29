@@ -22,8 +22,8 @@ RSpec.configure do |config|
   config.include BookingHelper
 
   config.before(:suite) do
-    DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.clean_with(:transaction)
+    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.clean_with(:truncation, reset_ids: true)
   end
 
   config.before(:each) do
