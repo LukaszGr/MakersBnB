@@ -1,0 +1,5 @@
+require_relative 'main'
+require_relative 'users'
+require_relative 'sessions'
+require_relative 'spaces'
+require_relative 'bookings'
