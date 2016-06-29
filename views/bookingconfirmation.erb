@@ -1,17 +1,29 @@
 <html>
 <head>
+  <link rel="stylesheet" href="/style.css" media="screen" title="no title" charset="utf-8">
   <title></title>
 </head>
 <body>
   <h1>Booking requests</h1>
-  <%if booking_info%>
-  <% booking_info.each do |name, bookings| %>
-  <ul>
-    <li><%= name %>---
-      <li><%=bookings.name%></li>
-    </li>
-  </ul>
-  <%end%>
-  <%end%>
+    <% if booking_info %>
+      <% booking_info.each do |space, user| %>
+      <div class="space">
+        <ul>
+        <strong> <%=  space.name %> </strong>
+        <br>
+          <%  user.each do |user, booking| %>
+          <br>
+            <li>
+              <%= user.name %> ----
+              <form class="" action="/booking/confirmation" method="post">
+                <input type="Submit" name="Confirm Booking" value="Confirm Booking">
+              </form>
+          </li>
+          <br>
+          <%end%>
+        </ul>
+        </div>
+      <%end%>
+    <%end%>
 </body>
 </html>

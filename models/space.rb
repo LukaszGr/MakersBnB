@@ -21,7 +21,7 @@ class Space
     bookings = Hash.new
     if user_has_space?(user_id)
       retrieve_all_users_spaces(user_id).each do |space|
-        bookings[space.name] = Booking.retrieve_bookings_for_space(space.id)
+        bookings[space] = Booking.retrieve_bookings_for_space(space.id)
       end
     else
       return false

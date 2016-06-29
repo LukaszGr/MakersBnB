@@ -24,11 +24,12 @@ class App < Sinatra::Base
     end
 
     def has_bookings
-      Space.retrieve_bookings(current_user.id)
+    Space.retrieve_bookings(current_user.id)
     end
 
     def booking_info
       @booking_info ||= Space.retrieve_bookings(current_user.id)
+      p @booking_info
     end
   end
 
