@@ -2,16 +2,20 @@
 
 <form action='/space' method='post'>
 
-  <label for='name'> Name:  </label>
-     <input name='name' type='text'>
- 
-  <label for='description'> Description: </label>
-     <input name='description' type='text'>
-  
-  <label for='price_per_night'> Price per night: </label>
-     <input name='price_per_night' type='float'>
-  
-  <!-- input type='hidden' name='user_id' value='<%= current_user.id %>' -->
-  
-  <input type='submit' value='Add Space'>
+  <label for='name'>Name:</label>
+     <input name='name' type='text' required>
+
+  <label for='description'>Description:</label>
+     <input name='description' type='text' required>
+
+  <label for='price_per_night'>Price per night:</label>
+     <input name='price_per_night' type='float' required>
+
+  <label for='date_from'>Date from:</label>
+     <input name='date_from' type='date' required>
+
+  <label for='date_to'>Date to:</label>
+     <input name='date_to' type='date' required>
+
+  <input type='submit' value='Add New Space'>
 </form>

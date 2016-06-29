@@ -5,6 +5,8 @@ module SpaceHelper
 		fill_in 'name', with: 'YoMama House'
 		fill_in 'description', with: 'a really dirty house'
 		fill_in 'price_per_night', with: '20.00'
-    click_button('Add Space')
+    fill_in 'date_from', with: '01/08/2016'
+    fill_in 'date_to', with: '01/10/2016'
+    click_button('Add New Space')
   end
 end
