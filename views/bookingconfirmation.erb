@@ -1,29 +1,24 @@
-<html>
-<head>
-  <link rel="stylesheet" href="/style.css" media="screen" title="no title" charset="utf-8">
-  <title></title>
-</head>
-<body>
-  <h1>Booking requests</h1>
-    <% if booking_info %>
-      <% booking_info.each do |space, user| %>
-      <div class="space">
-        <ul>
-        <strong> <%=  space.name %> </strong>
-        <br>
-          <%  user.each do |user, booking| %>
-          <br>
-            <li>
-              <%= user.name %> ----
-              <form class="" action="/booking/confirmation" method="post">
-                <input type="Submit" name="Confirm Booking" value="Confirm Booking">
-              </form>
-          </li>
-          <br>
-          <%end%>
-        </ul>
-        </div>
+<h1>Booking requests</h1>
+<% if booking_info %>
+  <div class="space">
+  <% booking_info.each do |space, user| %>
+
+    <ul id="booking_spaces">
+    <strong> <%=  space.name %> </strong>
+    <br>
+      <%  user.each do |user, booking| %>
+      <br>
+        <li>
+          <%= user.name %> ----
+          <form class="hello" action="/booking/confirmation" method="post">
+            <input type="hidden" name="booking_id" value="<%=booking.id%>">
+            <input type="submit" name="Confirm Booking" value="Confirm Booking">
+          </form>
+      </li>
+      <br>
       <%end%>
-    <%end%>
-</body>
-</html>
+    </ul>
+
+  <%end%>
+  </div>
+<%end%>

@@ -29,7 +29,6 @@ class App < Sinatra::Base
 
     def booking_info
       @booking_info ||= Space.retrieve_bookings(current_user.id)
-      p @booking_info
     end
   end
 
@@ -107,7 +106,7 @@ class App < Sinatra::Base
     @booking = Booking.create(booker_id: current_user.id,
                               space_id: params[:space_id],
                               date: "22/04/16",
-                              confirmed: false)
+                              confirmed: :processing)
     if @booking.save
       redirect '/booking/request'
     else
@@ -117,6 +116,13 @@ class App < Sinatra::Base
 
   get '/booking/request' do
     erb :bookingrequest
+  end
+
+  post '/booking/confirmation' do
+    booking = Booking.get(params[:booking_id])
+    p booking.space_id
+    p Booking.get(:space_id => booking.space_id)
+    Booking.get(params[:booking_id]).update(:confirmed => :confirmed)
   end
 
   run! if app_file == $0

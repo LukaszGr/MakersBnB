@@ -9,7 +9,7 @@ class Booking
   property :id, Serial
   property :booker_id, Integer
   property :space_id, Integer
-  property :confirmed, Boolean
+  property :confirmed, String
   property :date, String
 
 
