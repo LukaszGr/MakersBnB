@@ -33,12 +33,6 @@ Basic payment implementation though Stripe.
 ---PENDING---
 
 ```
-As a signed-up user
-So I can hire a space
-I want to hire a space for one night
-```
-
-```
 As the owner of a listing
 So I can hire out my listing
 I want to approve the request from a signed-in user
@@ -57,6 +51,12 @@ I want to only see listings that have not already been confirmed as booked
 ```
 
 ---DONE---
+
+```
+As a signed-up user
+So I can hire a space
+I want to hire a space for one night
+```
 
 ```
 As a user
