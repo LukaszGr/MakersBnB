@@ -2,7 +2,7 @@ class App < Sinatra::Base
 
 post '/booking/new/' do
   @space = Space.get(params[:space_id])
-  erb :newbooking
+  erb :'bookings/new'
 end
 
 post '/booking/create' do
@@ -18,7 +18,7 @@ post '/booking/create' do
 end
 
 get '/booking/confirmation' do
-  erb :bookingconfirmation
+  erb :'bookings/confirmation'
 end
 
 end

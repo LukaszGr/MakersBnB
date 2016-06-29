@@ -1,0 +1,22 @@
+<script type="text/javascript">
+// Example array for now - need to pull this in from Ruby DB
+var unavailable_array = ["2016-07-01","2016-07-04"]
+
+// Date from should be todays date if from is before today
+var date_from = new Date('<%= @space.date_from %>')
+var date_to = new Date('<%= @space.date_to %>')
+</script>
+
+<script src="/js/booking_datepicker.js" charset="utf-8"></script>
+
+
+<h1>Book <%= @space.name %></h1>
+<h2><%= @space.description %></h2>
+<h3>Price per night: <%= @space.price_per_night.to_i %></h3>
+<h4>Available from: <%= @space.date_from %> : Available until: <%= @space.date_to %></h4>
+  <form action="/booking/create" method="post">
+    <input type="hidden" name="space_id" value="<%=@space.id%>">
+    <label for='date_rental'>Choose Date:</label>
+    <input name='date_rental' id="datepicker" required>
+    <input type="submit" id="booking" value="Make Booking">
+  </form>
