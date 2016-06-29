@@ -10,6 +10,8 @@ feature 'book a space' do
     click_button('Make Booking')
     expect(page).to have_content('Book YoMama')
     expect(page).to have_content("a really dirty house")
+    expect(page).to have_content('2016-08-01')
+    expect(page).to have_content('2016-10-01')
     expect(page).to have_content(20)
     click_button('Make Booking')
 		expect(page.status_code).to eq(200)
