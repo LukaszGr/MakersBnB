@@ -16,10 +16,13 @@ class Booking
 	belongs_to :space, key => true
 
   def self.retrieve_bookings_for_space(space_id)
-    if Booking.count(space_id: space_id) >= 1
-         Booking.all(space_id: space_id)
-    else
-      return nil
-    end
+    booking_exists?(space_id) ? Booking.all(space_id: space_id) : nil
   end
+
+private
+
+  def self.booking_exists?(space_id)
+    Booking.count(space_id: space_id) >= 1
+  end
+
 end
