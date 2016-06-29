@@ -9,4 +9,12 @@ module SpaceHelper
     fill_in 'date_to', with: '01/10/2016'
     click_button('Add New Space')
   end
+
+  def book_space
+    # create space must be run before this
+    visit '/'
+    click_button('Make Booking')
+    click_button('Make Booking')
+  end
+
 end

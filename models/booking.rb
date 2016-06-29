@@ -15,4 +15,11 @@ class Booking
 
 	belongs_to :space, key => true
 
+  def self.retrieve_bookings_for_space(space_id)
+    if Booking.count(space_id: space_id) >= 1
+         Booking.all(space_id: space_id)
+    else
+      return nil
+    end
+  end
 end

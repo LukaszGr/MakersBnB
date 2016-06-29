@@ -22,6 +22,10 @@ class App < Sinatra::Base
     def current_user
       @current_user ||= User.get(session[:user_id])
     end
+
+    def has_bookings
+      Space.retrieve_bookings(current_user.id)
+    end
   end
 
   get '/' do
