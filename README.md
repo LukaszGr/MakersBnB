@@ -32,18 +32,6 @@ We would like a web application that allows users to list spaces they have avail
 
 ---PENDING---
 
-```
-As an owner
-So I don't accidentally book my own space
-I want to only see spaces that aren't my own
-```
-
-```
-As a user
-So I can check the status of my bookings
-I want to be able to see all my bookings with a status
-```
-
 ---DONE---
 
 ```
