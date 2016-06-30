@@ -1,7 +1,6 @@
 <h1>Current spaces</h1>
 
-<% @all_spaces.each do |space| %>
-<% if Booking.are_dates_unconfirmed?(space.id) %>
+<% @all_available_spaces.each do |space| %>
 <ul id="current_space_list">
   <li> <strong>  <%= space.name %> </strong>  --- <%= space.description %> --- <%= space.price_per_night.to_i %>
     <form class="" action="/booking/new/" method="post">
@@ -11,5 +10,4 @@
    </li>
 </ul>
 <br>
-<%end%>
 <%end%>
