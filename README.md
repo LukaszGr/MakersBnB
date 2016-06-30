@@ -33,21 +33,21 @@ We would like a web application that allows users to list spaces they have avail
 ---PENDING---
 
 ```
-As the owner of a listing
-So I can hire out my listing
-I want to approve the request from a signed-in user
+As an owner
+So I can easily manage bookings on my spaces
+I want to only see bookings which aren't confirmed / denied
 ```
 
 ```
-As a owner of a listing
-So I can choose who rents my listing
-I want to see all booking requests
+As an owner
+So I don't accidentally book my own space
+I want to only see spaces that aren't my own
 ```
 
 ```
-As a signed-up user
-So I can only view available spaces
-I want to only see listings that have not already been confirmed as booked
+As a user
+So I can check the status of my bookings
+I want to be able to see all my bookings with a status
 ```
 
 ---DONE---
@@ -86,4 +86,22 @@ I want to see all listings
 As a signed-up user
 So I can offer my listing at the appropriate dates
 I can select a range of dates it is available
+```
+
+```
+As the owner of a listing
+So I can hire out my listing
+I want to approve the request from a signed-in user
+```
+
+```
+As a owner of a listing
+So I can choose who rents my listing
+I want to see all booking requests
+```
+
+```
+As a signed-up user
+So I can only view available spaces
+I want to only see listings that have not already been confirmed as booked
 ```

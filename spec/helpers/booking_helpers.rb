@@ -10,7 +10,15 @@ module BookingHelper
     booking = Booking.create(booker_id: booker_id,
                             space_id: space_id,
                             date: date_rental,
-                            confirmed: true)
+                            confirmed: 'confirmed')
+    booking.save
+  end
+
+  def create_multi_bookings(booker_id: 4, space_id: 1, date_rental: '2016/09/03')
+    booking = Booking.create(booker_id: booker_id,
+                            space_id: space_id,
+                            date: date_rental,
+                            confirmed: 'processing')
     booking.save
   end
 end

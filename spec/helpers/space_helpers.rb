@@ -14,6 +14,7 @@ module SpaceHelper
     # create space must be run before this
     visit '/'
     click_button('Make Booking')
+    fill_in('date_rental', with: '02/08/2016')
     click_button('Make Booking')
   end
 
