@@ -1,4 +1,5 @@
 require 'data_mapper'
+require_relative 'space'
 
 class Booking
 
@@ -19,8 +20,11 @@ class Booking
 			confirmed = Booking.all(:confirmed => 'confirmed')
 			current_space = confirmed.all(:space_id => space_id)
 	    unavailable_dates = current_space.each {|item| item}.map {|key, value| key.date}
+	end
 
-	  end
+  def self.are_dates_unconfirmed?(space_id)
+      confirmed_booking_dates(space_id).count < Space.number_of_days(space_id)
+  end
 
   def self.retrieve_bookings_for_space(space_id)
 

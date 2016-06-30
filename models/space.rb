@@ -29,6 +29,11 @@ class Space
     do_any_bookings_exist_for_spaces?(bookings) ? bookings : false
   end
 
+  def self.number_of_days(space_id)
+    space = Space.get(space_id)
+    ((space.date_to - space.date_from) + 1)
+  end
+
   private
 
 
