@@ -3,7 +3,6 @@
 // Example array for now - need to pull this in from Ruby DB
 
 var unavailable_array = <%= Booking.confirmed_booking_dates(@space.id) %>
-console.log (unavailable_array);
 
 // Date from should be todays date if from is before today
 
@@ -25,4 +24,3 @@ var date_to = new Date('<%= @space.date_to %>')
     <input name='date_rental' id="datepicker" required>
     <input type="submit" id="booking" value="Make Booking">
   </form>
-
