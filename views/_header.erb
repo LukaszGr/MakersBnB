@@ -4,21 +4,22 @@
   <nav>
     <ul class="nav nav-pills pull-right">
       <% if current_user %>
-      <li role="presentation"> Logged in as: <%= current_user.name %></li>
-      <li role="presentation" class="active">
-        <form method='post' action='/session/end'>
-          <input type='hidden' name='_method' value='delete'>
-          <input class="btn btn-default" type='submit' value='Sign Out'>
-        </form></li>
+      <li role="presentation" class="disabled"> <a href="#">Logged in as: <%= current_user.name %></a></li>
+
       <li role="presentation">
-        <a class="btn btn-default" href="/space/new">Add Space</a>
+        <a class="btn btn-success" href="/space/new">Add Space</a>
       </li>
         <% if has_bookings %>
       <li role="presentation">
         <form method='get' action='/booking/view'>
-            <input class="btn btn-default" type='submit' value='View booking requests'>
+            <input class="btn btn-info" type='submit' value='View booking requests'>
         </form>
       </li>
+      <li role="presentation" class="active">
+        <form method='post' action='/session/end'>
+          <input type='hidden' name='_method' value='delete'>
+          <input class="btn btn-danger" type='submit' value='Sign Out'>
+        </form></li>
     <%end%>
     <% else %>
     <li role="presentation">

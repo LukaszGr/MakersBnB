@@ -13,7 +13,7 @@
     <h1>Current spaces</h1>
       </div>
   <% @all_available_spaces.each do |space| %>
-    <div class="row space">
+    <div class="row space rounded">
       <div class="col-xs-6">
         <h4><%= space.name %> </h4>
         <p><%= space.description %> --- <%= space.price_per_night.to_i %></p>
