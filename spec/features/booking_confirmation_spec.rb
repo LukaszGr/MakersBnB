@@ -26,6 +26,6 @@ feature 'booking confirmation' do
     expect(page).to have_content("YoMama")
     expect(page).to have_content("Vader")
       click_button('Confirm Booking')
-      expect(page).to have_content('Booking is confirmed')
+      expect(page).to have_content('Booking confirmed. Yay!')
   end
 end

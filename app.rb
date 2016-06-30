@@ -122,7 +122,8 @@ class App < Sinatra::Base
     booking = Booking.get(params[:booking_id])
     p booking.space_id
     p Booking.get(:space_id => booking.space_id)
-    Booking.get(params[:booking_id]).update(:confirmed => :confirmed)
+    booking.update(:confirmed => "confirmed")
+    erb :bookingconfirmed
   end
 
   run! if app_file == $0
