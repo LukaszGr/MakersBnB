@@ -5,6 +5,13 @@
     <input type='submit' value='Sign Out'>
   </form>
   <a href="/space/new">Add Space</a>
+
+  <% if has_bookings %>
+    <form method='get' action='/booking/view'>
+      <input type='submit' value='View booking requests'>
+    </form>
+  <%end%>
+
 <% else %>
   <a href="/user/new">Sign Up</a>
   <a href="/session/new">Sign In</a>

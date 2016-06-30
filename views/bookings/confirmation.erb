@@ -1,1 +1,24 @@
-<h1>Woooo!</h1>
+<h1>Booking requests</h1>
+<% if booking_info %>
+  <div class="space">
+  <% booking_info.each do |space, user| %>
+
+    <ul id="booking_spaces">
+    <strong> <%=  space.name %> </strong>
+    <br>
+      <%  user.each do |user, booking| %>
+      <br>
+        <li>
+          <%= user.name %> ----
+          <form class="hello" action="/booking/confirmation" method="post">
+            <input type="hidden" name="booking_id" value="<%=booking.id%>">
+            <input type="submit" name="Confirm Booking" value="Confirm Booking">
+          </form>
+      </li>
+      <br>
+      <%end%>
+    </ul>
+
+  <%end%>
+  </div>
+<%end%>
