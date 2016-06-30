@@ -30,17 +30,20 @@ class Space
     do_any_bookings_exist_for_spaces?(bookings) ? bookings : false
   end
 
-  def self.array_of_spaces_with_availability
+  def self.array_of_spaces_with_availability(current_user)
     all_spaces = Space.all
     spaces_with_availability = []
     all_spaces.each { |space| Booking.are_dates_unconfirmed?(space.id) ? spaces_with_availability << space : nil }
-    return spaces_with_availability
+    return spaces_with_availability.select do |space|
+      space.user_id != current_user
+    end
   end
 
   def self.number_of_days(space_id)
     space = Space.get(space_id)
     ((space.date_to - space.date_from) + 1)
   end
+
 
   private
 

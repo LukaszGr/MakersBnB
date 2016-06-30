@@ -27,14 +27,14 @@ class Booking
   end
 
   def self.retrieve_bookings_for_space(space_id)
-
     if booking_exists?(space_id)
-    bookings = Hash.new
-    space_bookings = Booking.all(space_id: space_id)
-    space_bookings.each do |booking|
-      bookings[get_user_who_booked(booking.booker_id)] = booking
-    end
-    bookings
+      bookings = Hash.new
+      space_bookings = Booking.all(space_id: space_id)
+      processing_bookings = space_bookings.all(confirmed: 'processing')
+      processing_bookings.each do |booking|
+        bookings[get_user_who_booked(booking.booker_id)] = booking
+      end
+      bookings
    else
      nil
    end
