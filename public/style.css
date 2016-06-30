@@ -9,3 +9,44 @@ body {
 .space {
   background-color: #ffffcc;
 }
+
+
+.row.space {
+  background: #eee;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+}
+
+.row.space .btn {
+  vertical-align: middle
+}
+
+.row.space .make-booking {
+  padding-top: 18px;
+}
+
+#current_space_list {
+  padding-right: 60px;
+  padding-left: 60px;
+}
+
+header input.btn {
+    padding: 10px;
+}
+
+.jumbotron h1 {
+  font-size: 53px;
+}
+
+h1 {
+  font-size: 32px;
+  padding-bottom: 15px;
+}
+
+img.logo {
+  width: 48px;
+  height: auto;
+  margin-bottom: 20px
+}

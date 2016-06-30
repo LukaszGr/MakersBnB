@@ -1,13 +1,29 @@
-<h1>Current spaces</h1>
 
-<% @all_available_spaces.each do |space| %>
-<ul id="current_space_list">
-  <li> <strong>  <%= space.name %> </strong>  --- <%= space.description %> --- <%= space.price_per_night.to_i %>
-    <form class="" action="/booking/new/" method="post">
-      <input type="hidden" name="space_id" value="<%=space.id%>">
-      <input type="submit" id="booking" value="Make Booking">
-    </form>
-   </li>
-</ul>
-<br>
-<%end%>
+
+<div class="jumbotron">
+  <h1>Feel at home anywhere</h1>
+  <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+  <p><a class="btn btn-lg btn-success" href="/user/new" role="button">Sign up today</a></p>
+</div>
+
+
+
+  <div id="current_space_list" class="marketing">
+    <div class="row">
+    <h1>Current spaces</h1>
+      </div>
+  <% @all_available_spaces.each do |space| %>
+    <div class="row space">
+      <div class="col-xs-6">
+        <h4><%= space.name %> </h4>
+        <p><%= space.description %> --- <%= space.price_per_night.to_i %></p>
+      </div>
+    <div class="col-xs-6 text-right make-booking">
+        <form class="" action="/booking/new/" method="post">
+          <input type="hidden" name="space_id" value="<%=space.id%>">
+          <input class="btn btn-warning" type="submit" id="booking" value="Make Booking">
+        </form>
+    </div>
+  </div>
+    <%end%>
+  </div>

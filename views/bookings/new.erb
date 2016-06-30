@@ -20,7 +20,9 @@ var date_to = new Date('<%= @space.date_to %>')
 <h4>Available from: <%= @space.date_from %> : Available until: <%= @space.date_to %></h4>
   <form action="/booking/create" method="post">
     <input type="hidden" name="space_id" value="<%=@space.id%>">
+    <div class="form-group">
     <label for='date_rental'>Choose Date:</label>
-    <input name='date_rental' id="datepicker" required>
-    <input type="submit" id="booking" value="Make Booking">
+    <input class="form-control" name='date_rental' id="datepicker" required>
+    </div>
+    <input  class="btn btn-default" type="submit" id="booking" value="Make Booking">
   </form>
