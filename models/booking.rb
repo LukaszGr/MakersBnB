@@ -36,6 +36,12 @@ class Booking
    end
   end
 
+  def self.run_confirmation_process(booker_id)
+    confirmed_booking = Booking.get(booker_id)
+    confirm_booking(confirmed_booking)
+    deny_other_bookings(confirmed_booking)
+  end
+
   def self.get_user_who_booked(booker_id)
     User.get(booker_id)
   end
@@ -44,6 +50,17 @@ private
 
   def self.booking_exists?(space_id)
     Booking.count(space_id: space_id) >= 1
+  end
+
+  def self.confirm_booking(confirmed_booking)
+    confirmed_booking.update(:confirmed => "confirmed")
+  end
+
+  def self.deny_other_bookings(confirmed_booking)
+    bookings_for_space = Booking.all(:space_id => confirmed_booking.space_id)
+    bookings_for_space_and_date = bookings_for_space.all(:date => confirmed_booking.date)
+    bookings_to_deny = bookings_for_space_and_date.all(:confirmed => 'processing')
+    bookings_to_deny.update(:confirmed => 'denied')
   end
 
 end
