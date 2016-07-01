@@ -44,6 +44,10 @@ class Space
     ((space.date_to - space.date_from) + 1)
   end
 
+  def self.email_confirm_listing(space,current_user)
+    Pony.mail(:to => current_user.email, :subject => "#{space.name} has been listed")
+  end
+
 
   private
 

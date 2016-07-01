@@ -56,3 +56,13 @@ footer {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
 }
+
+.nav>li>a.btn-success:hover {
+    text-decoration: none;
+    background-color: #449d44;
+}
+
+.nav>li>a.btn-info:hover {
+    text-decoration: none;
+    background-color: #31b0d5;
+}

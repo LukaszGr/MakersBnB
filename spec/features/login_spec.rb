@@ -8,7 +8,7 @@ feature 'log in' do
   scenario 'successful login' do
 
     visit '/session/new'
-    fill_in('email', :with => "toby@makersacademy.com")
+    fill_in('email', :with => "tobywilkinsuk@hotmail.co.uk")
     fill_in('password', :with => "supersecret")
     click_button('submit')
     expect(page).to have_content('Logged in as: Toby')
@@ -18,7 +18,7 @@ feature 'log in' do
   scenario 'Password incorrect should raise error' do
 
     visit '/session/new'
-    fill_in('email', :with => "toby@makersacademy.com")
+    fill_in('email', :with => "tobywilkinsuk@hotmail.co.uk")
     fill_in('password', :with => "wrongggggggg")
     click_button('submit')
     expect(page).to have_content('This email/password combination does not exist')

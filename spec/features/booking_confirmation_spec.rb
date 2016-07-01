@@ -26,6 +26,7 @@ feature 'booking confirmation' do
     expect(page).to have_content("YoMama")
     expect(page).to have_content("Vader")
       click_button('Confirm Booking')
+      expect(Pony).to have_received(:deliver).exactly(5).times
       expect(page).to have_content('Booking confirmed. Yay!')
   end
 end

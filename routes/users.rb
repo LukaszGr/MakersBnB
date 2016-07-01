@@ -9,6 +9,7 @@ post '/user/new' do
 
   if @user.save
     session[:user_id] = @user.id
+    User.send_welcome_email(@user)
     redirect('/')
   else
     flash.now[:errors] = @user.errors.full_messages
