@@ -33,12 +33,6 @@ end
 
   post '/booking/confirmation' do
     Booking.run_confirmation_process(params[:booking_id])
-    # booking = Booking.get(params[:booking_id])
-    # booking.update(:confirmed => "confirmed")
-    # bookings_for_space = Booking.all(:space_id => booking.space_id)
-    # bookings_for_space_and_date = bookings_for_space.all(:date => booking.date)
-    # bookings_to_deny = bookings_for_space_and_date.all(:confirmed => 'processing')
-    # bookings_to_deny.update(:confirmed => 'denied')
     erb :'bookings/confirmed'
   end
 

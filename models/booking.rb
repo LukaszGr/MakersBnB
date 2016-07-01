@@ -40,10 +40,12 @@ class Booking
    end
   end
 
-  def self.run_confirmation_process(booker_id)
-    confirmed_booking = Booking.get(booker_id)
+  def self.run_confirmation_process(booking_id)
+    confirmed_booking = Booking.get(booking_id)
+    p confirmed_booking
     confirm_booking(confirmed_booking)
     deny_other_bookings(confirmed_booking)
+    email_booking_confirmed(booking_id,confirmed_booking)
   end
 
   def self.get_user_who_booked(booker_id)
@@ -72,6 +74,23 @@ private
     bookings_for_space_and_date = bookings_for_space.all(:date => confirmed_booking.date)
     bookings_to_deny = bookings_for_space_and_date.all(:confirmed => 'processing')
     bookings_to_deny.update(:confirmed => 'denied')
+    email_booking_denied(bookings_to_deny)
+  end
+
+  def self.email_booking_confirmed(booking_id,booking)
+    booking = Booking.get(booking_id)
+    user = User.get(booking.booker_id)
+    p user
+    space = Space.get(booking.space_id)
+    Pony.mail(:to => user.email, :subject => "Your booking for #{space.name} on #{booking.date} has been confirmed!")
+  end
+
+  def self.email_booking_denied(bookings)
+    bookings.each do |booking|
+    user = User.get(booking.booker_id)
+    space = Space.get(booking.space_id)
+    Pony.mail(:to => user.email, :subject => "Your booking for #{space.name} on #{booking.date} has been rejected")
+  end
   end
 
 end
