@@ -15,12 +15,13 @@
             <input class="btn btn-info" type='submit' value='View booking requests'>
         </form>
       </li>
+          <%end%>
       <li role="presentation" class="active">
         <form method='post' action='/session/end'>
           <input type='hidden' name='_method' value='delete'>
           <input class="btn btn-danger" type='submit' value='Sign Out'>
         </form></li>
-    <%end%>
+
     <% else %>
     <li role="presentation">
       <a class="btn btn-success" href="/user/new">Sign Up</a>
