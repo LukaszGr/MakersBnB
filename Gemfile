@@ -10,6 +10,7 @@ gem "dm-postgres-adapter"
 gem 'dm-migrations'
 gem 'bcrypt'
 gem 'rake'
+gem 'twilio-ruby'
 
 group :test do
   gem "rspec"

@@ -23,6 +23,8 @@ post '/booking/create' do
 end
 
   get '/booking/request' do
+    sms = Message.new
+    sms.book_request_send
     erb :'bookings/request'
   end
 
@@ -38,6 +40,8 @@ end
     # bookings_for_space_and_date = bookings_for_space.all(:date => booking.date)
     # bookings_to_deny = bookings_for_space_and_date.all(:confirmed => 'processing')
     # bookings_to_deny.update(:confirmed => 'denied')
+    sms = Message.new
+    sms.space_confirmed_send
     erb :'bookings/confirmed'
   end
 
