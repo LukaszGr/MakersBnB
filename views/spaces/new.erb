@@ -1,21 +1,34 @@
+<script src="/js/new_space_datepicker.js" charset="utf-8"></script>
+
+
 <h1>New Space</h1>
 
 <form action='/space' method='post'>
-
+<div class="form-group">
   <label for='name'>Name:</label>
-     <input name='name' type='text' required>
-
+     <input class="form-control" name='name' type='text' required>
+   </div>
+<div class="form-group">
   <label for='description'>Description:</label>
-     <input name='description' type='text' required>
-
+     <input class="form-control" name='description' type='text' required>
+        </div>
+<div class="form-group">
   <label for='price_per_night'>Price per night:</label>
-     <input name='price_per_night' type='float' required>
-
+     <input class="form-control" name='price_per_night' type='float' required>
+        </div>
+  <div class="row">
+  <div class="col-xs-6">
   <label for='date_from'>Date from:</label>
-     <input name='date_from' type='date' required>
+    <input id="date_from" name="date_from">
+     <div id="datepicker_from" required></div>
+       </div>
 
+       <div class="col-xs-6 ">
   <label for='date_to'>Date to:</label>
-     <input name='date_to' type='date' required>
+    <input id="date_to" name="date_to">
+     <div id="datepicker_to" required></div>
+      </div>
 
-  <input type='submit' value='Add New Space'>
+  </div>
+    <input class="btn btn-success" type='submit' value='Add New Space'>
 </form>

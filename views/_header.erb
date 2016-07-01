@@ -1,18 +1,36 @@
-<% if current_user %>
-  Logged in as: <%= current_user.name %>
-  <form method='post' action='/session/end'>
-    <input type='hidden' name='_method' value='delete'>
-    <input type='submit' value='Sign Out'>
-  </form>
-  <a href="/space/new">Add Space</a>
 
-  <% if has_bookings %>
-    <form method='get' action='/booking/view'>
-      <input type='submit' value='View booking requests'>
-    </form>
-  <%end%>
 
-<% else %>
-  <a href="/user/new">Sign Up</a>
-  <a href="/session/new">Sign In</a>
-<% end %>
+<div class="header clearfix">
+  <nav>
+    <ul class="nav nav-pills pull-right">
+      <% if current_user %>
+      <li role="presentation" class="disabled"> <a href="#">Logged in as: <%= current_user.name %></a></li>
+
+      <li role="presentation">
+        <a class="btn btn-success" href="/space/new">Add Space</a>
+      </li>
+        <% if has_bookings %>
+      <li role="presentation">
+        <form method='get' action='/booking/view'>
+            <input class="btn btn-info" type='submit' value='View booking requests'>
+        </form>
+      </li>
+          <%end%>
+      <li role="presentation" class="active">
+        <form method='post' action='/session/end'>
+          <input type='hidden' name='_method' value='delete'>
+          <input class="btn btn-danger" type='submit' value='Sign Out'>
+        </form></li>
+
+    <% else %>
+    <li role="presentation">
+      <a class="btn btn-success" href="/user/new">Sign Up</a>
+     </li>
+     <li role="presentation">
+       <a class="btn btn-info" href="/session/new">Sign In</a>
+    </li>
+    <% end %>
+    </ul>
+  </nav>
+  <img src="/img/airbnb.png" class="logo img-rounded">
+</div>

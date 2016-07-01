@@ -1,4 +1,6 @@
 <h1>Booking requests</h1>
+<div class="row">
+  <div class="col-md-4">
 <% if booking_info %>
   <div class="space">
   <% booking_info.each do |space, user| %>
@@ -22,4 +24,6 @@
     </ul>
   <%end%>
   </div>
+    </div>
+</div>
 <%end%>
