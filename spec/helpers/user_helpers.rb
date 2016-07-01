@@ -1,6 +1,6 @@
 module UsersHelper
 
-  def create_user(name: "Toby", email: "toby@makersacademy.com", password_confirmation: "supersecret", password: "supersecret")
+  def create_user(name: "Toby", email: "tobywilkinsuk@hotmail.co.uk", password_confirmation: "supersecret", password: "supersecret")
     visit '/user/new'
     fill_in('name', :with => name)
     fill_in('email', :with => email)
@@ -9,7 +9,7 @@ module UsersHelper
     click_button "submit"
   end
 
-  def sign_in(email: "toby@makersacademy.com", password: "supersecret")
+  def sign_in(email: "tobywilkinsuk@hotmail.co.uk", password: "supersecret")
     visit "/"
     click_link "Sign In"
     fill_in :email, with: email

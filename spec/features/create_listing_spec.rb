@@ -1,5 +1,10 @@
 feature 'Adding space listing' do
 
+	before(:each) do
+		allow(Pony).to receive(:deliver)
+				  Mail::TestMailer.deliveries.clear
+	end
+
 	scenario 'I can add space listing' do
 		create_user
 		visit '/space/new'
@@ -10,9 +15,11 @@ feature 'Adding space listing' do
 		fill_in 'date_to', with: '12/08/2016'
 
 		expect{ click_button(:'Add New Space') }.to change{ Space.all.count }.by(1)
+		expect(Pony).to have_received(:deliver).exactly(2).times
 		expect(page.status_code).to eq(200)
 		expect(current_path).to eq '/'
 		expect(page).to have_css("#current_space_list", :text => "YoMama")
+
 	end
 
 	scenario 'error if date_from is later than date_to' do

@@ -16,6 +16,7 @@ post '/booking/create' do
                             date: params[:date_rental],
                             confirmed: :processing)
   if @booking.save
+    Booking.email_booking_request(@booking.space_id)
     redirect '/booking/request'
   else
     p "unsuccessful"

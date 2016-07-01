@@ -10,6 +10,7 @@ gem "dm-postgres-adapter"
 gem 'dm-migrations'
 gem 'bcrypt'
 gem 'rake'
+gem 'pony'
 
 group :test do
   gem "rspec"

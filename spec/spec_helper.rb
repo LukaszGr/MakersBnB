@@ -12,6 +12,7 @@ require './models/init'
 require_relative './helpers/user_helpers'
 require_relative './helpers/space_helpers'
 require_relative './helpers/booking_helpers'
+require_relative './helpers/pony_helpers'
 
 Capybara.app = App
 
@@ -20,6 +21,7 @@ RSpec.configure do |config|
   config.include UsersHelper
   config.include SpaceHelper
   config.include BookingHelper
+  config.include Rack::Test::Methods
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
@@ -28,6 +30,7 @@ RSpec.configure do |config|
 
   config.before(:each) do
     DatabaseCleaner.start
+    dont_send_email
   end
 
   config.after(:each) do

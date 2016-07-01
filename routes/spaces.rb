@@ -16,6 +16,7 @@ class App < Sinatra::Base
                             date_from: params[:date_from],
                             date_to: params[:date_to],
                             user_id: current_user.id)
+      Space.email_confirm_listing(@space,current_user)
       redirect '/'
     end
   end

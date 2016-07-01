@@ -50,6 +50,13 @@ class Booking
     User.get(booker_id)
   end
 
+  def self.email_booking_request(space_id)
+
+    space = Space.get(space_id)
+    user = User.get(space.user_id)
+    Pony.mail(to: user.email, subject: "Booking request - #{space.name}")
+  end
+
 private
 
   def self.booking_exists?(space_id)

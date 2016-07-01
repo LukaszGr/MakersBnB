@@ -1,5 +1,6 @@
 require 'data_mapper'
 require 'bcrypt'
+require 'pony'
 
 class User
 
@@ -29,6 +30,10 @@ class User
     else
       nil
     end
+  end
+
+  def self.send_welcome_email(user)
+    Pony.mail(:to => user.email, :subject => "Welcome to Makers BnB :)", :body => "Hi #{user.name}, \n Thanks for signing up!" )
   end
 
 
