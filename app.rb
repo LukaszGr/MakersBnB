@@ -15,19 +15,20 @@ class App < Sinatra::Base
   set :partial_template_engine, :erb
   enable :partial_underscores
 
+    configure do
   Pony.options = {
     :via => :smtp,
     :via_options => {
-      :address              => 'smtp-mail.outlook.com',
-      :port                 => '587',
+      :address => 'smtp.sendgrid.net',
+      :port => '587',
+      :user_name => ENV['SENDGRID_USERNAME'],
+      :password => ENV['SENDGRID_PASSWORD'],
+      :authentication => :plain,
       :enable_starttls_auto => true,
-      :user_name            => 'makersbnb@outlook.com',
-      :password             => ENV["SMTP_PASSWORD"],
-      :authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
-      :domain               => "localhost.localdomain"
+      :domain => "makersb-n-b.herokuapp.com"
     }
   }
-
+  end
 
   helpers do
     def current_user
