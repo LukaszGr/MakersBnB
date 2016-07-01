@@ -14,6 +14,20 @@ class App < Sinatra::Base
   set :partial_template_engine, :erb
   enable :partial_underscores
 
+  Pony.options = {
+    :via => :smtp,
+    :via_options => {
+      :address              => 'smtp.gmail.com',
+      :port                 => '587',
+      :enable_starttls_auto => true,
+      :user_name            => 'noreplymakersbnb@gmail.com',
+      :password             => ENV["SMTP_PASSWORD"],
+      :authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
+      :domain               => "localhost.localdomain"
+    }
+  }
+
+
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])
