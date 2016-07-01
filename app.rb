@@ -18,10 +18,10 @@ class App < Sinatra::Base
   Pony.options = {
     :via => :smtp,
     :via_options => {
-      :address              => 'smtp.gmail.com',
+      :address              => 'smtp-mail.outlook.com',
       :port                 => '587',
       :enable_starttls_auto => true,
-      :user_name            => 'noreplymakersbnb@gmail.com',
+      :user_name            => 'makersbnb@outlook.com',
       :password             => ENV["SMTP_PASSWORD"],
       :authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
       :domain               => "localhost.localdomain"
