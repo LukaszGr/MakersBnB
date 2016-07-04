@@ -1,0 +1,53 @@
+
+/models/booking.rb
+
+def self.confirmed_booking_dates (space_id)
+    confirmed = Booking.all(:confirmed => 'confirmed')
+    current_space = confirmed.all(:space_id => space_id)
+    unavailable_dates = current_space.each {|item| item}.map {|key, value| key.date}
+end
+
+
+--------------------
+
+
+#/views/bookings/new.erb
+
+<script type="text/javascript">
+// Example array for now - need to pull this in from Ruby DB
+
+var unavailable_array = <%= Booking.confirmed_booking_dates(@space.id) %>
+
+// Date from should be todays date if from is before today
+
+var date_from = new Date('<%= @space.date_from %>')
+var date_to = new Date('<%= @space.date_to %>')
+
+</script>
+
+
+--------------------
+
+#/public/js/bookingDatepicker.js
+
+'use strict';
+
+$(function() {
+  $( "#datepicker" ).datepicker({
+    dateFormat: 'yy/mm/dd',
+    minDate: date_from,
+    maxDate: date_to,
+    inline: true,
+    altField: "#date_rental",
+    beforeShowDay: function(date){
+        var string = jQuery.datepicker.formatDate('yy/mm/dd', date);
+        return [ unavailable_array.indexOf(string) === -1 ]
+    }
+  });
+});
+
+$("#date_rental").change(function(){
+  $("#datepicker").datepicker('setDate', $(this).val());
+});
+
+--------------------

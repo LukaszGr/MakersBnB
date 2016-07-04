@@ -42,7 +42,6 @@ class Booking
 
   def self.run_confirmation_process(booking_id)
     confirmed_booking = Booking.get(booking_id)
-    p confirmed_booking
     confirm_booking(confirmed_booking)
     deny_other_bookings(confirmed_booking)
     email_booking_confirmed(booking_id,confirmed_booking)
