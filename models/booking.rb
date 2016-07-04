@@ -80,7 +80,6 @@ private
   def self.email_booking_confirmed(booking_id,booking)
     booking = Booking.get(booking_id)
     user = User.get(booking.booker_id)
-    p user
     space = Space.get(booking.space_id)
     Pony.mail(:to => user.email, :subject => "Your booking for #{space.name} on #{booking.date} has been confirmed!")
   end
