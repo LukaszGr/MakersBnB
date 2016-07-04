@@ -22,9 +22,9 @@ describe Booking do
       sign_in
       click_button('View booking requests')
       within('form.confirm-0') do
-        p Booking.all(:confirmed => 'denied').count
+      Booking.all(:confirmed => 'denied').count
       expect{click_button('Confirm Booking')}.to change{Booking.all(:confirmed => 'denied').count}.by 1
-        p Booking.all(:confirmed => 'denied').count
+      Booking.all(:confirmed => 'denied').count
       end
       expect(page).to have_content('Booking confirmed. Yay!')
 
